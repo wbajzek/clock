@@ -1,4 +1,7 @@
-Simple javascript-based clock. 
+Very simple javascript-based clock. I just wanted something nice-looking that didn't use Flash, like some similar ones I'd seen do.
 
 Some of the Javascript is based on this tutorial rather than totally reinventing the wheel. 
 http://www.elated.com/articles/creating-a-javascript-clock/
+
+Try it out here:
+http://william.bajzek.com/clock/
