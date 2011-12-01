@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<link href='http://fonts.googleapis.com/css?family=Nova+Mono' rel='stylesheet' type='text/css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script>
+	$(function() {
+		updateClock();
+		positionClock();
+		$(window).resize(positionClock);
+		setInterval("updateClock();",60000);
+	});
+	
+	function positionClock() {
+		var clockWidth = $("#clock").width();
+		$("#clock").css("top",( $(window).innerHeight() / 2) - ($("#clock").height() / 2));
+		$("#clock").css("left",$(window).innerWidth()/2 - clockWidth/2);
+		
+	}
+	function updateClock() {
+		var currentTime = new Date ();
+		var currentHours = currentTime.getHours ( );
+	  var currentMinutes = currentTime.getMinutes ( );
+
+	  // Pad the minutes and seconds with leading zeros, if required
+	  currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+
+	  // Choose either "AM" or "PM" as appropriate
+	  var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+
+	  // Convert the hours component to 12-hour format if needed
+	  currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+
+	  // Convert an hours component of "0" to "12"
+	  currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+
+	  // Compose the string for display
+	  var currentTimeString = currentHours + ":" + currentMinutes;
+		
+		
+		
+		$("#clock").html(currentTimeString);
+		
+	}
+</script>
+<style>
+	body {
+		background-color:black;
+		color:white;
+		text-shadow:0px 0px 10px #666;
+		display:table;
+		width:100%;
+		position: relative;
+		padding:0;
+		margin:0;
+	}
+	body div#clock {
+		font-family: font-family: 'Nova Mono';
+		font-size:400px;
+		text-align:center;
+		position:absolute;
+		padding:0;
+		margin:0;
+	}
+</style>
+</head>
+<body>
+	<div id="clock"></div>
+</body>
+</html>
