@@ -9,7 +9,7 @@
 		updateClock();
 		positionClock();
 		$(window).resize(positionClock);
-		setInterval("updateClock();",60000);
+		setInterval("updateClock();",1000);
 	});
 	
 	function positionClock() {
@@ -41,6 +41,7 @@
 		
 		
 		$("#clock").html(currentTimeString);
+		positionClock();
 		
 	}
 </script>
